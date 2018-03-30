@@ -12,68 +12,82 @@ namespace RandomTester
 
             while (run)
             {
-                bool validNumberEntered = false;
-                int nRuns = 0;
+                //bool validNumberEntered = false;
+                //int nRuns = 0;
 
-                while (validNumberEntered == false)
+                //while (validNumberEntered == false)
+                //{
+                //    Console.Write("Number of times to run the simulation? ");
+                //    string runs = Console.ReadLine();
+                //    validNumberEntered = int.TryParse(runs, out nRuns);
+
+                //    if (validNumberEntered == false)
+                //    {
+                //        Console.WriteLine("Invalid number entered, press any key to continue..");
+                //        Console.ReadKey();
+                //        Console.Clear();
+                //    }
+                //}
+
+                //List<int> rollsFour = new List<int>();
+                //List<int> rollsSix = new List<int>();
+                //List<int> rollsEight = new List<int>();
+                //List<int> rollsTen = new List<int>();
+                //List<int> rollsTwelve = new List<int>();
+                //List<int> rollsTwenty = new List<int>();
+
+                //int[] arrMaxValues = new[] {
+                //(int)Dice.DieType.d4,
+                //(int)Dice.DieType.d6,
+                //(int)Dice.DieType.d8,
+                //(int)Dice.DieType.d10,
+                //(int)Dice.DieType.d12,
+                //(int)Dice.DieType.d20 };
+
+                //for (int i = 0; i < nRuns; i++)
+                //{
+                //    int[] rolls = Dice.Roll(arrMaxValues);
+
+                //    int four = rolls[0];
+                //    int six = rolls[1];
+                //    int eight = rolls[2];
+                //    int ten = rolls[3];
+                //    int twelve = rolls[4];
+                //    int twenty = rolls[5];
+
+                //    rollsFour.Add(four);
+                //    rollsSix.Add(six);
+                //    rollsEight.Add(eight);
+                //    rollsTen.Add(ten);
+                //    rollsTwelve.Add(twelve);
+                //    rollsTwenty.Add(twenty);
+
+                //    Console.WriteLine($"Roll #{i + 1}:\td4:{four}\td6:{six}\td8:{eight}\td10:{ten}\td12:{twelve}\td20:{twenty}");
+                //}
+
+                //string finalStats = "";
+                //finalStats += RollStats(rollsFour, Dice.DieType.d4) + TAB;
+                //finalStats += RollStats(rollsSix, Dice.DieType.d6) + TAB;
+                //finalStats += RollStats(rollsEight, Dice.DieType.d8) + TAB;
+                //finalStats += RollStats(rollsTen, Dice.DieType.d10) + TAB;
+                //finalStats += RollStats(rollsTwelve, Dice.DieType.d12) + TAB;
+                //finalStats += RollStats(rollsTwenty, Dice.DieType.d20);
+
+                //Console.WriteLine(finalStats);
+
+                int[] numbers = { 1, 2, 3, 4, 5, 6 };
+               
+
+                for (int i = 0; i < 40; i++)
                 {
-                    Console.Write("Number of times to run the simulation? ");
-                    string runs = Console.ReadLine();
-                    validNumberEntered = int.TryParse(runs, out nRuns);
-
-                    if (validNumberEntered == false)
+                    Shuffle.ShuffleArray(numbers);
+                    foreach(int n in numbers)
                     {
-                        Console.WriteLine("Invalid number entered, press any key to continue..");
-                        Console.ReadKey();
-                        Console.Clear();
+                        Console.Write(n.ToString() + ' ');
                     }
+                    Console.Write('\n');
                 }
 
-                List<int> rollsFour = new List<int>();
-                List<int> rollsSix = new List<int>();
-                List<int> rollsEight = new List<int>();
-                List<int> rollsTen = new List<int>();
-                List<int> rollsTwelve = new List<int>();
-                List<int> rollsTwenty = new List<int>();
-
-                int[] arrMaxValues = new[] {
-                (int)Dice.DieType.d4,
-                (int)Dice.DieType.d6,
-                (int)Dice.DieType.d8,
-                (int)Dice.DieType.d10,
-                (int)Dice.DieType.d12,
-                (int)Dice.DieType.d20 };
-
-                for (int i = 0; i < nRuns; i++)
-                {
-                    int[] rolls = Dice.Roll(arrMaxValues);
-
-                    int four = rolls[0];
-                    int six = rolls[1];
-                    int eight = rolls[2];
-                    int ten = rolls[3];
-                    int twelve = rolls[4];
-                    int twenty = rolls[5];
-
-                    rollsFour.Add(four);
-                    rollsSix.Add(six);
-                    rollsEight.Add(eight);
-                    rollsTen.Add(ten);
-                    rollsTwelve.Add(twelve);
-                    rollsTwenty.Add(twenty);
-
-                    Console.WriteLine($"Roll #{i + 1}:\td4:{four}\td6:{six}\td8:{eight}\td10:{ten}\td12:{twelve}\td20:{twenty}");
-                }
-
-                string finalStats = "";
-                finalStats += RollStats(rollsFour, Dice.DieType.d4) + TAB;
-                finalStats += RollStats(rollsSix, Dice.DieType.d6) + TAB;
-                finalStats += RollStats(rollsEight, Dice.DieType.d8) + TAB;
-                finalStats += RollStats(rollsTen, Dice.DieType.d10) + TAB;
-                finalStats += RollStats(rollsTwelve, Dice.DieType.d12) + TAB;
-                finalStats += RollStats(rollsTwenty, Dice.DieType.d20);
-
-                Console.WriteLine(finalStats);
                 Console.Write("\nRerun y/n? ");
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 run = key.Key == ConsoleKey.Y;
